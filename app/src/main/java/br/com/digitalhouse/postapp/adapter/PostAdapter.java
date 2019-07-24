@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private ImageView postImageView;
         private TextView tituloTextView;
         private TextView descricaoTextView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,6 +61,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public void bind(Post post) {
             tituloTextView.setText(post.getTitulo());
             descricaoTextView.setText(post.getDescricao());
+
+            Picasso.get().load(post.getUrlImagem()).into(postImageView);
         }
     }
 }

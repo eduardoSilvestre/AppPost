@@ -31,7 +31,7 @@ public class PostViewModel extends AndroidViewModel {
     }
 
     public void atualizarPosts(){
-        disposable.add(repository.buscarListaPosts()
+        disposable.add(repository.buscarListaDePostJson(getApplication().getApplicationContext())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(listaDePosts -> postsLiveData.setValue(listaDePosts))
